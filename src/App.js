@@ -3,44 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 
-// import Card from "./Card";
-// import NoImage from "./NoImage";
-
-const Card = props => {
-  return (
-    <li className="card-wrap">
-      <a href={props.url}>
-        <img src={props.src} alt={props.title} />
-        <div className="title-container">
-          <p>
-            {props.title}
-          </p>
-        </div>
-      </a>
-    </li>
-  );
-};
-
-const NoImage = props => {
-  return (
-    <li className="no-imgs">
-      <h3>Sorry, no images match your search.</h3>
-    </li>
-  );
-};
-
-const SportsList = ({ results }) => {
-  let cards;
-  if (results.length) {
-    cards = results.map((result, idx) =>
-      <Card title={result.webTitle} url={result.webUrl} src={result.elements[0].assets[0].file} key={idx} />
-    );
-  } else {
-    cards = <NoImage />;
-  }
-
-  return <ul className="sports-list">{cards}</ul>;
-};
+import Route from "./components/Route";
+import Link from "./components/Link";
+import Culture from "./components/Culture";
+// import Header from "./components/Header";
+import Lifestyle from "./components/Lifestyle";
+import NewsToday from "./components/NewsToday";
+import Sports from "./components/Sports";
 
 class App extends React.Component {
   constructor(props) {
@@ -68,6 +37,7 @@ class App extends React.Component {
   };
 
   render() {
+    const { results, loading } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -81,58 +51,65 @@ class App extends React.Component {
               <nav className="navigation">
                 <ul>
                   <li>
-                    <a href="/">News Today</a>
+                    <Link href="/" className="nav-item">
+                      News Today
+                    </Link>
                   </li>
                   <li>
-                    <a href="/">Sports</a>
+                    <Link href="/sports" className="nav-item">
+                      Sports
+                    </Link>
                   </li>
                   <li>
-                    <a href="/">Culture</a>
+                    <Link href="/culture" className="nav-item">
+                      Culture
+                    </Link>
                   </li>
                   <li>
-                    <a href="/">Lifestyle</a>
+                    <Link href="/lifestyle" className="nav-item">
+                      Lifestyle
+                    </Link>
                   </li>
                 </ul>
 
-                <div className="searchbar">
-                  <input />
-                </div>
+                <form className="search-form">
+                  <label className="is-hidden" htmlFor="search">
+                    Search
+                  </label>
+                  <input
+                    className="is-hidden"
+                    type="search"
+                    onChange={null}
+                    name="search"
+                    ref={input => (this.query = input)}
+                    placeholder="Search..."
+                  />
+                  <button type="submit" id="submit" className="search-button">
+                    <i className="material-icons icn-search">search</i>
+                  </button>
+                </form>
               </nav>
             </div>
           </div>
         </header>
 
         <section className="App-content">
-          <section className="container">
-            <section className="top-story-section">
-              <div className="heading-bookmark">
-                <h1>Top stories</h1>
-                <div className="right-section">
-                  <div className="half">
-                    <button>View Bookmark</button>
-                  </div>
-                  <div className="half drowdown-list">
-                    {/* <label for="news-select">Newest First</label> */}
-                    <select name="news" id="news-select">
-                      <option value="">--Newest First--</option>
-                      <option value="newest">Newest First</option>
-                      <option value="oldest">Oldest First</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className="news-cards">
-              </div>
-            </section>
-            <section className="sports">
-              <h1>Sports</h1>
-              {this.state.loading ? (
-                <p>Loading...</p>
-              ) : (
-                  <SportsList results={this.state.results} />
-                )}
-            </section>
-          </section>
+          <Route path="/">
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <NewsToday theGuardianResults={results} loading={loading} />
+            )}
+          </Route>
+          <Route path="/sports">
+            <Sports theGuardianResults={results} loading={loading} />
+          </Route>
+          <Route path="/culture">
+            <Culture theGuardianResults={results} loading={loading} />
+          </Route>
+          <Route path="/lifestyle">
+            <Lifestyle theGuardianResults={results} loading={loading} />
+          </Route>
         </section>
 
         <footer className="App-footer"></footer>

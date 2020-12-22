@@ -36,16 +36,32 @@ h1 {
 .navigation ul li {
   list-style: none;
   padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+.navigation ul li:nth-child(1) {
+  border-bottom: 3px solid #398e3c;
+}
+
+.navigation ul li:nth-child(2) {
+  border-bottom: 3px solid #f50157;
+}
+
+.navigation ul li:nth-child(3) {
+  border-bottom: 3px solid #ffca26;
+}
+
+.navigation ul li:nth-child(4) {
+  border-bottom: 3px solid #2296f3;
 }
 
 .navigation ul li a {
   text-transform: uppercase;
   color: white;
   margin-top: 1em;
-  padding: 0 3em;
+  padding: 1em 3em;
   padding-top: 1em;
   text-decoration: none;
-  border-bottom: 3px solid red;
 }
 
 .App-header {
@@ -82,12 +98,10 @@ h1 {
   justify-content: flex-end;
 }
 
-.heading-bookmark .right-section .half button{
-
+.heading-bookmark .right-section .half button {
 }
 
-.heading-bookmark .right-section .half select{
-
+.heading-bookmark .right-section .half select {
 }
 
 .App-content {
@@ -142,4 +156,69 @@ h1 {
 .App-footer {
   background-color: #08357c;
   min-height: 7vh;
+}
+
+.search-form {
+  align-self: flex-end;
+  border-bottom: 3px solid white;
+}
+
+.search-form .search-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-form .material-icons {
+  color: white;
+  padding: 0 1.5em;
+}
+
+.is-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .row {
+    width: unset;
+    margin: 1em;
+  }
+
+  .container {
+    width: 100%;
+    margin: 1em;
+  }
+
+  .top-story-section, .sports, .culture, .lifestyle {
+    margin: 1em;
+  }
+
+  .sports-list li a {
+    text-decoration: none;
+  }
+
+  .sports-list li {
+    flex: 0 0 100%;
+  }
+
+  .sports-list li .title-container {
+    position: relative;
+    bottom: 2px;
+    padding: unset;
+  }
+
+  .title-container p {
+    padding: 0 1em;
+  }
 }
