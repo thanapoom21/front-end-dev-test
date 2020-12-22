@@ -1,38 +1,145 @@
+h1 {
+  font-size: 2em;
+}
+
 .App {
-  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  margin: 0.5rem 0;
+  width: 10rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  width: 1200px;
+  max-width: 1200px;
+}
+
+.row {
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation ul li {
+  list-style: none;
+  padding-top: 1em;
+}
+
+.navigation ul li a {
+  text-transform: uppercase;
+  color: white;
+  margin-top: 1em;
+  padding: 0 3em;
+  padding-top: 1em;
+  text-decoration: none;
+  border-bottom: 3px solid red;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #08357c;
+  min-height: 7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(2px + 1.5vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.heading-bookmark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.heading-bookmark h1 {
+  width: 50%;
+}
+
+.heading-bookmark .right-section {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.heading-bookmark .right-section .half {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heading-bookmark .right-section .half button{
+
+}
+
+.heading-bookmark .right-section .half select{
+
+}
+
+.App-content {
+  background-color: white;
+  min-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(2px + 1.5vmin);
+}
+
+.sports-list {
+  display: flex;
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.sports-list li a {
+  position: relative;
+}
+
+.sports-list li {
+  margin: 0.5em 0;
+  flex: 0 0 calc(33.33% - 10px);
+}
+
+.sports-list li img {
+  width: 100%;
+}
+
+.sports-list li .title-container {
+  min-height: 5em;
+  position: absolute;
+  display: flex;
+  bottom: 4px;
+  color: white;
+  background-color: rgba(8, 53, 124, 0.9);
+  padding: 2px 1rem;
+}
+
+.title-container p {
+  align-self: center;
+}
+
+.App-footer {
+  background-color: #08357c;
+  min-height: 7vh;
 }
