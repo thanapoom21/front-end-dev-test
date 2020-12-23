@@ -1,38 +1,293 @@
+h1 {
+  font-size: 2em;
+}
+
 .App {
-  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  margin: 0.5rem 0;
+  width: 10rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  width: 1200px;
+  max-width: 1200px;
+}
+
+.row {
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation ul li {
+  list-style: none;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+.navigation ul li:nth-child(1) {
+  border-bottom: 3px solid #398e3c;
+}
+
+.navigation ul li:nth-child(2) {
+  border-bottom: 3px solid #f50157;
+}
+
+.navigation ul li:nth-child(3) {
+  border-bottom: 3px solid #ffca26;
+}
+
+.navigation ul li:nth-child(4) {
+  border-bottom: 3px solid #2296f3;
+}
+
+.navigation ul li a {
+  text-transform: uppercase;
+  color: white;
+  margin-top: 1em;
+  padding: 1em 3em;
+  padding-top: 1em;
+  text-decoration: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #08357c;
+  min-height: 7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(2px + 1.5vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bookmark-btn {
+  padding: 4px 10px;
+  color: white;
+  background-color: #08357c;
+  display: flex;
+  align-items: center;
+  border-width: unset;
+  border: unset;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.bookmark-btn .material-icons{
+  color: white;
+}
+
+.heading-bookmark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading-bookmark h1 {
+  width: 50%;
+}
+
+.heading-bookmark .right-section {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.heading-bookmark .right-section .half {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App-content {
+  background-color: white;
+  min-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(2px + 1.5vmin);
+}
+
+/** Newstoday Section **/
+
+.news-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-list {
+  display: flex;
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.news-list:first-child {
+  width: 100%;
+  flex: 0 0 calc(50% - 10px);
+}
+
+.news-list:last-child {
+  display: flex;
+  flex: 0 0 calc(50% - 10px);
+}
+
+.news-list:last-child .card-wrap {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.news-list .card-wrap img {
+  width: 100%;
+}
+
+.news-list .card-wrap a {
+  position: relative;
+}
+
+.news-list .card-wrap .title-container {
+  min-height: 5em;
+  position: absolute;
+  bottom: 4px;
+  color: white;
+  background-color: rgba(8, 53, 124, 0.9);
+  padding: 2px 1rem;
+}
+
+.title-container p {
+  align-self: center;
+}
+
+/** Sport Section **/
+
+.sports-list {
+  display: flex;
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.sports-list li a {
+  position: relative;
+}
+
+.sports-list li {
+  margin: 0.5em 0;
+  flex: 0 0 calc(33.33% - 10px);
+}
+
+.sports-list li img {
+  width: 100%;
+}
+
+.sports-list li .title-container {
+  min-height: 5em;
+  position: absolute;
+  display: flex;
+  bottom: 4px;
+  color: white;
+  background-color: rgba(8, 53, 124, 0.9);
+  padding: 2px 1rem;
+}
+
+.title-container p {
+  align-self: center;
+}
+
+.App-footer {
+  background-color: #08357c;
+  min-height: 7vh;
+}
+
+.search-form {
+  align-self: flex-end;
+  border-bottom: 3px solid white;
+}
+
+.search-form .search-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-form .material-icons {
+  color: white;
+  padding: 0 1.5em;
+}
+
+.is-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 1.6rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .row {
+    width: unset;
+    margin: 1em;
+  }
+
+  .container {
+    width: 100%;
+    margin: 1em;
+  }
+
+  .top-story-section,
+  .sports,
+  .culture,
+  .lifestyle {
+    margin: 1em;
+  }
+
+  .sports-list li a {
+    text-decoration: none;
+  }
+
+  .sports-list li {
+    flex: 0 0 100%;
+  }
+
+  .sports-list li .title-container {
+    position: relative;
+    bottom: 2px;
+    padding: unset;
+  }
+
+  .title-container p {
+    padding: 0 1em;
   }
 }
