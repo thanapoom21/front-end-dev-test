@@ -1,25 +1,5 @@
-const Card = props => {
-  return (
-    <li className="card-wrap">
-      <a href={props.url}>
-        <img src={props.src} alt={props.title} />
-        <div className="title-container">
-          <p>
-            {props.title}
-          </p>
-        </div>
-      </a>
-    </li>
-  );
-};
-
-const NoImage = props => {
-  return (
-    <li className="no-imgs">
-      <h3>Sorry, no images match your search.</h3>
-    </li>
-  );
-};
+import Card from "./Card";
+import NoImage from "./NoImage";
 
 const SportsList = ({ results }) => {
   let cards;

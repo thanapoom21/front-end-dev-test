@@ -75,6 +75,22 @@ h1 {
   color: white;
 }
 
+.bookmark-btn {
+  padding: 4px 10px;
+  color: white;
+  background-color: #08357c;
+  display: flex;
+  align-items: center;
+  border-width: unset;
+  border: unset;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bookmark-btn .material-icons{
+  color: white;
+}
+
 .heading-bookmark {
   display: flex;
   flex-direction: row;
@@ -98,12 +114,6 @@ h1 {
   justify-content: flex-end;
 }
 
-.heading-bookmark .right-section .half button {
-}
-
-.heading-bookmark .right-section .half select {
-}
-
 .App-content {
   background-color: white;
   min-height: 86vh;
@@ -113,6 +123,62 @@ h1 {
   /* justify-content: center; */
   font-size: calc(2px + 1.5vmin);
 }
+
+/** Newstoday Section **/
+
+.news-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-list {
+  display: flex;
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.news-list:first-child {
+  width: 100%;
+  flex: 0 0 calc(50% - 10px);
+}
+
+.news-list:last-child {
+  display: flex;
+  flex: 0 0 calc(50% - 10px);
+}
+
+.news-list:last-child .card-wrap {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.news-list .card-wrap img {
+  width: 100%;
+}
+
+.news-list .card-wrap a {
+  position: relative;
+}
+
+.news-list .card-wrap .title-container {
+  min-height: 5em;
+  position: absolute;
+  bottom: 4px;
+  color: white;
+  background-color: rgba(8, 53, 124, 0.9);
+  padding: 2px 1rem;
+}
+
+.title-container p {
+  align-self: center;
+}
+
+/** Sport Section **/
 
 .sports-list {
   display: flex;
@@ -200,7 +266,10 @@ h1 {
     margin: 1em;
   }
 
-  .top-story-section, .sports, .culture, .lifestyle {
+  .top-story-section,
+  .sports,
+  .culture,
+  .lifestyle {
     margin: 1em;
   }
 

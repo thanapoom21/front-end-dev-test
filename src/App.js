@@ -16,18 +16,36 @@ class App extends React.Component {
     super(props);
     this.state = {
       results: [],
+      newsResult: [],
+      sportResult: [],
+      cultureResult: [],
+      lifeStyleResult: [],
       loading: true,
     };
   }
 
-  componentDidMount = (query = "sport") => {
+  componentDidMount = () => {
     axios
-      .get(
-        `https://content.guardianapis.com/search?section=${query}&show-elements=image&api-key=test`
-      )
-      .then(response => {
+      .all([
+        axios.get(
+          `https://content.guardianapis.com/search?section=news&show-elements=image&api-key=test`
+        ),
+        axios.get(
+          `https://content.guardianapis.com/search?section=sport&show-elements=image&api-key=test`
+        ),
+        axios.get(
+          `https://content.guardianapis.com/search?section=culture&show-elements=image&api-key=test`
+        ),
+        axios.get(
+          `https://content.guardianapis.com/search?section=lifeandstyle&show-elements=image&api-key=test`
+        ),
+      ])
+      .then(([news, sport, culture, lifeandstyle]) => {
         this.setState({
-          results: response.data.response.results,
+          newsResult: news.data.response.results,
+          sportResult: sport.data.response.results,
+          cultureResult: culture.data.response.results,
+          lifeStyleResult: lifeandstyle.data.response.results,
           loading: false,
         });
       })
@@ -37,7 +55,13 @@ class App extends React.Component {
   };
 
   render() {
-    const { results, loading } = this.state;
+    const {
+      newsResult,
+      sportResult,
+      cultureResult,
+      lifeStyleResult,
+      loading,
+    } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -98,17 +122,21 @@ class App extends React.Component {
             {loading ? (
               <p>Loading...</p>
             ) : (
-              <NewsToday theGuardianResults={results} loading={loading} />
+              <NewsToday
+                newsResult={newsResult}
+                sportResult={sportResult}
+                loading={loading}
+              />
             )}
           </Route>
           <Route path="/sports">
-            <Sports theGuardianResults={results} loading={loading} />
+            <Sports theGuardianResults={sportResult} loading={loading} />
           </Route>
           <Route path="/culture">
-            <Culture theGuardianResults={results} loading={loading} />
+            <Culture theGuardianResults={cultureResult} loading={loading} />
           </Route>
           <Route path="/lifestyle">
-            <Lifestyle theGuardianResults={results} loading={loading} />
+            <Lifestyle theGuardianResults={lifeStyleResult} loading={loading} />
           </Route>
         </section>
 
